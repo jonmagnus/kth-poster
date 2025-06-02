@@ -12,3 +12,5 @@
 *.toc
 *.fdb_latexmk
 *.fls
+build/
+.DS_Store
