@@ -19,7 +19,12 @@
 \newfontfamily\Georgia[Ligatures=TeX]{Georgia}
 
 \usefonttheme{professionalfonts}
-\setsansfont{Figtree}
+\setsansfont{Figtree}[
+  UprightFont=*-Light,
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Regular,
+  BoldItalicFont=*-Italic
+]
 \setmainfont{Georgia}
 
 \setbeamerfont{headline}{family=\Figtree}
@@ -96,27 +101,9 @@
 }
 
 % logo
-\newlength{\logoleftwidth}
-\setlength{\logoleftwidth}{0cm}
-\newlength{\logorightwidth}
-\setlength{\logorightwidth}{0cm}
 \newlength{\logocenterwidth}
 \setlength{\logocenterwidth}{0cm}
-\newlength{\maxlogowidth}  % space on both sides set to maxlogowidth to keep title centered
-\setlength{\maxlogowidth}{0cm}
 
-\newcommand{\logoright}[1]{
-  \newcommand{\insertlogoright}{#1}
-  \settowidth{\logorightwidth}{\insertlogoright}
-  \addtolength{\logorightwidth}{10ex}
-  \setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
-}
-\newcommand{\logoleft}[1]{
-  \newcommand{\insertlogoleft}{#1}
-  \settowidth{\logoleftwidth}{\insertlogoleft}
-  \addtolength{\logoleftwidth}{10ex}
-  \setlength{\maxlogowidth}{\maxof{\logoleftwidth}{\logorightwidth}}
-}
 \newcommand{\logocenter}[1]{
   \newcommand{\insertlogocenter}{#1}
   \settowidth{\logocenterwidth}{\insertlogocenter}
@@ -133,23 +120,15 @@
       \hspace{10ex}
       \centering
       \insertlogocenter
+      \vskip0.2\logocenterwidth
       \vspace*{\fill}
     \fi
-    \begin{columns}
-      \begin{column}{\maxlogowidth}
-        \vskip5ex
-        \ifdefined\insertlogoleft
-        \vspace*{\fill}
-        \hspace{10ex}
-        \raggedright
-        \insertlogoleft
-        \vspace*{\fill}
-        \else\fi
-      \end{column}
-      \begin{column}{\dimexpr\paperwidth-\maxlogowidth-\maxlogowidth}
+    \hbox{
+      \hskip0.025\linewidth
+      \begin{beamercolorbox}{headline title}
         \usebeamerfont{headline}
         \vskip3ex
-        \centering
+        \raggedright
         \ifx \inserttitle \empty \else
         {\usebeamerfont{headline title}\usebeamercolor[fg]{headline title}\inserttitle\\[0.5ex]}
         \fi
@@ -159,22 +138,9 @@
         \ifx \insertinstitute \empty \else
         {\usebeamerfont{headline institute}\usebeamercolor[fg]{headline institute}\insertinstitute\\[1ex]}
         \fi
-      \end{column}
-      \begin{column}{\maxlogowidth}
-        \vskip5ex
-        \ifdefined\insertlogoright
-        \vspace*{\fill}
-        \raggedleft
-        \insertlogoright
-        \hspace{10ex}
-        \vspace*{\fill}
-        \else\fi
-      \end{column}
-    \end{columns}
-    \vspace{5ex}
-    \ifbeamercolorempty[bg]{headline rule}{}{
-      \begin{beamercolorbox}[wd=\paperwidth,colsep=0.5ex]{headline rule}\end{beamercolorbox}
+      \end{beamercolorbox}
     }
+    \vspace{5ex}
   \end{beamercolorbox}
 }
 
