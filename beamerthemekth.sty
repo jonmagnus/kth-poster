@@ -10,6 +10,7 @@
 \RequirePackage{changepage}
 \RequirePackage{fontspec}
 \RequirePackage{calc}
+\RequirePackage{epstopdf}
 
 % ====================
 % Fonts
@@ -50,9 +51,23 @@
 \setbeamertemplate{background}{%
   \begin{tikzpicture}
     \clip (0,0) rectangle (\paperwidth, \paperheight);
-    \draw[lightblue, line width=2mm] (\paperwidth, \paperheight) circle (20cm)
-      (.8\paperwidth, \paperheight) -- ++(0, -.15\paperheight)
-        -- ++ (.2\paperwidth, -.2\paperwidth);
+    \begin{scope}[
+      scale=1.4142,
+      x=1mm, y=1mm,
+      every path/.style={
+        line width=2mm,
+        draw=lightblue,
+        rounded corners=2mm
+      }]
+      \draw (661.89,727.67)
+        -- (462.98,727.67)
+        -- (396.23,661.69)
+        -- (396.23,794.44)
+        -- (528.98,661.69)
+        -- (660.61,661.69);
+      \draw (462.98,727.67) -- (462.98,865.58);
+      \draw (396.23,794.44) -- (613.64,793.94);
+    \end{scope}
   \end{tikzpicture}
 }
 
@@ -231,10 +246,7 @@
 
 \setbeamertemplate{footline}{
   \ifdefined\insertfootercontent
-  \begin{beamercolorbox}[vmode]{headline}
-    \ifbeamercolorempty[bg]{headline rule}{}{
-      \begin{beamercolorbox}[wd=\paperwidth,colsep=0.25ex]{headline rule}\end{beamercolorbox}
-    }
+  \begin{beamercolorbox}[vmode]{footer}
     \vspace{1.5ex}
     \hspace{\sepwidth}
     \usebeamerfont{footline}
