@@ -31,7 +31,7 @@
 \setbeamerfont{headline title}{size=\Huge,series=\bfseries}
 \setbeamerfont{headline author}{size=\Large}
 \setbeamerfont{headline institute}{size=\normalsize}
-\setbeamerfont{block title}{family=\Figtree,size=\large,series=\bfseries}
+\setbeamerfont{block title}{family=\Figtree,size=\Large,series=\bfseries}
 \setbeamerfont{heading}{family=\Figtree,series=\bfseries}
 \setbeamerfont{caption}{size=\small}
 \setbeamerfont{footline}{family=\Figtree,size=\normalsize}
@@ -147,7 +147,7 @@
 % Block
 \setbeamertemplate{block begin}
 {
-  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block title}
+  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,left]{block title}
     \vskip0pt
     \usebeamerfont{block title}\insertblocktitle
     \vskip-1.25ex
@@ -171,9 +171,11 @@
 % Alert Block
 \setbeamertemplate{block alerted begin}
 {
-  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block alerted title}
+  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,left]{block alerted title}
     \vskip0pt
-    \usebeamerfont{block title}\insertblocktitle
+    \begin{adjustwidth}{1ex}{1ex}
+      \usebeamerfont{block title}\insertblocktitle
+    \end{adjustwidth}
     \vskip-1.25ex
     \begin{beamercolorbox}[colsep=0.025ex]{block alerted separator}\end{beamercolorbox}
   \end{beamercolorbox}
@@ -198,9 +200,11 @@
 % Example Block
 \setbeamertemplate{block example begin}
 {
-  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,center]{block example title}
+  \begin{beamercolorbox}[colsep*=0ex,dp=2ex,left]{block example title}
     \vskip0pt
-    \usebeamerfont{block title}\insertblocktitle
+    \begin{adjustwidth}{1ex}{1ex}
+      \usebeamerfont{block title}\insertblocktitle
+    \end{adjustwidth}
     \vskip-1.25ex
     \begin{beamercolorbox}[colsep=0.025ex]{block example separator}\end{beamercolorbox}
   \end{beamercolorbox}
