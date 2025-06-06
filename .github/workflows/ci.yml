@@ -1,9 +1,6 @@
 name: CI
 on:
   push:
-name: CI
-on:
-  push:
   pull_request:
   schedule:
     - cron: '0 8 * * 6'
@@ -12,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update -y
-      - run: >
+      - run: >-
           sudo apt-get install -y
           texlive-latex-extra
           texlive-fonts-recommended
