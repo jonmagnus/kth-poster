@@ -26,6 +26,8 @@ jobs:
           wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Italic.ttf
           wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Bold.ttf
           wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-BoldItalic.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Light.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-LightItalic.ttf
       - name: Install fonts in shared font directory
         run: |
           sudo mkdir -p /usr/share/fonts/truetype/figtree
