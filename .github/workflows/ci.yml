@@ -18,8 +18,10 @@ jobs:
           texlive-luatex
           texlive-xetex
           latexmk
-          ttf-mscorefonts-installer
-          fontconfig
+      - name: Instsall mscorefonts
+        run: |
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+          sudo apt-get install -y ttf-mscorefonts-installer fontconfig
       - name: Download Figtree fonts
         run: |
           mkdir -p figtree-fonts
