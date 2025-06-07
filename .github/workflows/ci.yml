@@ -18,6 +18,7 @@ jobs:
           texlive-luatex
           texlive-xetex
           latexmk
+          ttf-mscorefonts-installer
           fontconfig
       - name: Download Figtree fonts
         run: |
