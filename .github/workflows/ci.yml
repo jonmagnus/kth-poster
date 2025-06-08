@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: sudo apt-get update -y
-      - run: >-
+      - run: >
           sudo apt-get install -y
           texlive-latex-extra
           texlive-fonts-recommended
@@ -18,12 +18,28 @@ jobs:
           texlive-luatex
           texlive-xetex
           latexmk
-      - uses: actions/checkout@v2
+      - name: Instsall mscorefonts
+        run: |
+          echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | sudo debconf-set-selections
+          sudo apt-get install -y ttf-mscorefonts-installer fontconfig
       - name: Download Figtree fonts
         run: |
-          mkdir -p fonts
-          wget -P fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Regular.ttf
-          wget -P fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Italic.ttf
-          wget -P fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Bold.ttf
-          wget -P fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-BoldItalic.ttf
+          mkdir -p figtree-fonts
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Regular.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Italic.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Bold.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-BoldItalic.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-Light.ttf
+          wget -P figtree-fonts https://raw.githubusercontent.com/erikdkennedy/figtree/master/fonts/ttf/Figtree-LightItalic.ttf
+      - name: Install fonts in shared font directory
+        run: |
+          sudo mkdir -p /usr/share/fonts/truetype/figtree
+          sudo cp figtree-fonts/*.ttf /usr/share/fonts/truetype/figtree/
+          sudo fc-cache -f -v
+      - uses: actions/checkout@v2
       - run: make poster.pdf
+      - name: Upload poster
+        uses: actions/upload-artifact@v4
+        with:
+          name: poster.pdf
+          path: build/poster.pdf
