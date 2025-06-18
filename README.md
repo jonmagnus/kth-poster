@@ -1,14 +1,6 @@
-# Gemini [![Build Status](https://github.com/anishathalye/gemini/actions/workflows/ci.yml/badge.svg)](https://github.com/anishathalye/gemini/actions/workflows/ci.yml)
+# KTH-poster [![Build Status](https://github.com/jonmangus/kth-poster/actions/workflows/ci.yml/badge.svg)](https://github.com/jonmagnus/kth-poster/actions/workflows/ci.yml)
 
-Gemini is a modern LaTeX [beamerposter] theme.
-
-<p align="center">
-<a href="https://raw.githubusercontent.com/anishathalye/assets/master/gemini/poster-gemini.pdf">
-<img src="https://raw.githubusercontent.com/anishathalye/assets/master/gemini/poster-gemini-small.png">
-</a>
-</p>
-
-If you're looking for a beamer presentation theme, take a look at [Auriga].
+KTH-poster is a fork of [Gemini](https://github.com/anishathalye/gemini).
 
 ## Dependencies
 
@@ -16,65 +8,29 @@ If you're looking for a beamer presentation theme, take a look at [Auriga].
     * You also need `latexmk` if you want to use the provided `Makefile`
 * LaTeX package dependencies including beamerposter (these usually come with
   your TeX installation, but if not, you can get them from [CTAN])
-* [Raleway] and [Lato], which are both available under Open Font License
+* Fonts [Figtree] and [Georgia].
 
 ## Usage
 
 1. Copy the files in this repository (or clone the repository)
 
+1. Install Figtree form e.g. Google Fonts, and Georgia (if not already installed).
+
 1. In `poster.tex`, set up your paper size, column layout, and scale the
    content as necessary
 
-1. Make a copy of `beamercolorthemegemini.sty`, update the `\usecolortheme`
-   line in `poster.tex`, and theme the poster to your liking (optional, but
-   highly recommended)
+1. Run `latexmk` to build your poster
 
-1. Run `make` to build your poster
-
-## FAQ
-
-See the [FAQ] in the Wiki for answers to frequently asked questions such as how
-to add an institution logo to the poster.
 
 ## Themes
 
 Gemini currently includes the following color themes:
 
-* `gemini` (default)
+* `kth` (default)
+* `gemini`
 * `mit`
 * `umich`
 * `labsix`
-
-It's also easy to make your own!
-
-### MIT theme
-
-<p align="center">
-<a href="https://raw.githubusercontent.com/anishathalye/assets/master/gemini/poster-mit.pdf">
-<img src="https://raw.githubusercontent.com/anishathalye/assets/master/gemini/poster-mit-small.png">
-</a>
-</p>
-
-### LabSix theme
-
-<p align="center">
-<a href="https://raw.githubusercontent.com/anishathalye/assets/master/gemini/poster-labsix.pdf">
-<img src="https://raw.githubusercontent.com/anishathalye/assets/master/gemini/poster-labsix-small.png">
-</a>
-</p>
-
-## Design goals
-
-* **Minimal**: clean and easy to read, so that the emphasis is on the content
-* **Batteries included**: works and looks good out of the box
-* **Easy theming**: easy to create and use a new color theme
-
-## Contributing
-
-Contributions to Gemini such as bug reports, new themes, and new poster
-components are greatly appreciated! Given the subjective nature of design,
-you're encouraged to open an issue or pull request early to get feedback before
-investing a lot of time in implementing a new feature.
 
 ## License
 
