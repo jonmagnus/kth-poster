@@ -1,4 +1,4 @@
-# KTH-poster [![Build Status](https://github.com/jonmangus/kth-poster/actions/workflows/ci.yml/badge.svg)](https://github.com/jonmagnus/kth-poster/actions/workflows/ci.yml)
+# KTH-poster [![Build Status](https://github.com/jonmagnus/kth-poster/actions/workflows/ci.yml/badge.svg)](https://github.com/jonmagnus/kth-poster/actions/workflows/ci.yml)
 
 An unofficial poster template for KTH Royal Institute of Technology.
 KTH-poster is a fork of [Gemini](https://github.com/anishathalye/gemini).
